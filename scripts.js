@@ -1,9 +1,7 @@
 async function startApp() {
     try {
         await getStatesData()
-        .then((statesData) => statesData.forEach(showStateName))
-        await getStatesData()
-        .then((statesData) => statesData.forEach(setStateCoords))
+        .then((statesData) => statesData.forEach(showStateData))
         mapApiParameters.push(mapKey)
         mapImg.src = mapApiParameters.join('')
     } catch(error) {
@@ -29,13 +27,10 @@ function compareStrings(a, b) {
     return (a < b) ? -1 : (a > b) ? 1 : 0;
 }
 
-function showStateName(stateData) {
+function showStateData(stateData) {
     let li = document.createElement('li')
     li.innerText = stateData.nome
     mainElement.append(li)
-}
-
-function setStateCoords(stateData) {
     mapApiParameters.push(`markers=color:red%7Csize:small%7C${stateData.latitude},${stateData.longitude}&`)
 }
 
