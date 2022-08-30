@@ -37,7 +37,7 @@ function showStateData(stateData) {
 var mainElement = document.querySelector('main')
 var mapImg = document.querySelector('img')
 var mapApiParameters = ['https://maps.googleapis.com/maps/api/staticmap?center=Araguaiana,MT&zoom=4&size=500x500&']
-var mapKey = 'key=AIzaSyC39rZDwEWy_MRhDaqyTJzk6zjFfWv4bJo'
+var mapKey = 'key=AIzaSyA4cTSxU1P2UygFzCl0NwCiD7mlZFTVnRg'
 
 startApp();
 
