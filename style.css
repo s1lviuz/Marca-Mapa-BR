@@ -1,0 +1,112 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 1280px;
+    min-height: 720px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    margin-top: auto;
+    height: 8rem;
+    background-color: rgba(128, 128, 128, 0.253);
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    flex: 0.3;
+}
+
+main {
+    border-left: 1px solid rgba(0, 0, 0, 0.219);
+    border-right: 1px solid rgba(0, 0, 0, 0.219);
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    flex-direction: column;
+}
+
+section {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    display: flex;
+    margin-top: auto;
+    height: 8rem;
+    background-color: rgba(128, 128, 128, 0.253);
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    flex: 0.3;
+}
+
+section aside {
+    background-color: rgba(128, 128, 128, 0.253);
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.219);
+    border-radius: 5%;
+    padding-left: 1rem;
+    margin-right: 1.5rem;
+    padding-right: 1rem;
+}
+
+aside h2 {
+    margin-bottom: 0;
+}
+
+aside ul {
+    margin-top: 0.5rem;
+    margin-left: 0;
+    padding-left: 1.2rem;
+}
+
+section img {
+    height: 500px;
+    width: 500px;
+    padding-left: 2rem;
+}
+
+.my-legend{
+    padding-left: 2rem;
+}
+
+.my-legend .legend-scale ul {
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    float: left;
+    list-style: none;
+}
+
+.my-legend .legend-scale ul li {
+    font-size: 80%;
+    list-style: none;
+    margin-left: 0;
+    line-height: 18px;
+    margin-bottom: 2px;
+}
+
+.my-legend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 16px;
+    width: 30px;
+    margin-right: 5px;
+    margin-left: 0;
+    border: 1px solid #999;
+}
