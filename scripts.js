@@ -14,18 +14,14 @@ async function getStatesDataFromJson() {
     try {
         const response = await fetch('estados.json')
         const responseJson = await response.json()
-        return responseJson.sort((stateA, stateB) => {
-            return getAlphabeticalOrderByStateNames(stateA.nome, stateB.nome);
+        return responseJson.sort((state, nextState) => {
+            let a = state.nome.toLowerCase()
+            let b = nextState.nome.toLowerCase()
+            return (a < b) ? -1 : (a > b) ? 1 : 0;
         });
     } catch(error) {
         throw(error)
     }
-}
-
-function getAlphabeticalOrderByStateNames(firstStateName, secondStateName) {
-    let a = firstStateName.toLowerCase();
-    let b = secondStateName.toLowerCase();
-    return (a < b) ? -1 : (a > b) ? 1 : 0;
 }
 
 function mapMarkerColor (stateRegion) {
@@ -36,9 +32,9 @@ function mapMarkerColor (stateRegion) {
 }
 
 function insertStateDataOnHTML(stateData) {
-    let li = document.createElement('li')
-    li.innerText = `${stateData.nome} - ${stateData.uf}`
-    document.querySelector('#statesList').append(li)
+    let stateNameElement = document.createElement('li')
+    stateNameElement.innerText = `${stateData.nome} - ${stateData.uf}`
+    document.querySelector('#statesList').append(stateNameElement)
     let markerColor = mapMarkerColor(stateData.regiao)
     mapApiParameters.push(`markers=color:${markerColor}%7Csize:small%7C${stateData.latitude},${stateData.longitude}&`)
 }
