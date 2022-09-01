@@ -5,77 +5,65 @@
 }
 
 html {
-    min-width: 1280px;
-    min-height: 720px;
+    min-width: 822px;
+    min-height: 772px;
 }
 
 body {
-    margin: 0;
+    background-color: black;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 header {
     display: flex;
-    margin-top: auto;
-    height: 8rem;
+    height: 4rem;
     background-color: rgba(128, 128, 128, 0.253);
     align-items: center;
-    width: 100%;
     justify-content: center;
-    flex: 0.3;
 }
 
 main {
-    border-left: 1px solid rgba(0, 0, 0, 0.219);
-    border-right: 1px solid rgba(0, 0, 0, 0.219);
+    background-color: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.219);
+    border-radius: 3%;
     display: flex;
-    flex: 1;
     justify-content: center;
     flex-direction: column;
-}
-
-section {
-    display: flex;
-    gap: 4rem;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
 }
 
 footer {
     display: flex;
-    margin-top: auto;
-    height: 8rem;
+    height: 3rem;
     background-color: rgba(128, 128, 128, 0.253);
     align-items: center;
-    width: 100%;
     justify-content: center;
-    flex: 0.3;
 }
 
-section aside {
+.content {
+    display: flex;
+    gap: 5rem;
+    margin: 1.5rem;
+}
+
+.states-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.states-list {
     background-color: rgba(128, 128, 128, 0.253);
-    display: inline-block;
     border: 1px solid rgba(0, 0, 0, 0.219);
-    border-radius: 5%;
-    padding-left: 1rem;
-    margin-right: 1.5rem;
-    padding-right: 1rem;
+    border-radius: 2%;
+    padding: 1rem;
 }
 
-aside h2 {
-    margin-bottom: 0;
-}
-
-aside ul {
-    margin-top: 0.5rem;
-    margin-left: 0;
-    padding-left: 1.2rem;
-}
-
-section img {
+.map img {
     height: 500px;
     width: 500px;
     padding-left: 2rem;

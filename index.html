@@ -7,35 +7,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Bem vindo!</h1>
-    </header>
 
     <main>
+        <header>
+            <h1>Bem vindo!</h1>
+        </header>
+
         <script src="scripts.js"></script>
 
-        <section>
-            <aside>
-                <h2>Lista de estados brasileiros:</h2>
-                <ul class="states-list"></ul>
+        <div class="content">
+            <section class="map">
+                <div class='my-legend'>
+                    <div class='legend-scale'>
+                        <ul class='legend-labels'>
+                            <li><span style='background:#89AE00;'></span>Norte</li>
+                            <li><span style='background:#7DABFD;'></span>Nordeste</li>
+                            <li><span style='background:#E6B32F;'></span>Sudeste</li>
+                            <li><span style='background:#DC8600;'></span>Sul</li>
+                            <li><span style='background:#E94335;'></span>Centro-Oeste</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+    
+            <aside class="states-box">
+                <div class="states-list">
+                    <h2>Lista de estados brasileiros:</h2>
+                    <ul></ul>
+                </div>
             </aside>
-        </section>
+        </div>      
 
-        <div class='my-legend'>
-            <div class='legend-scale'>
-                <ul class='legend-labels'>
-                    <li><span style='background:#89AE00;'></span>Norte</li>
-                    <li><span style='background:#7DABFD;'></span>Nordeste</li>
-                    <li><span style='background:#E6B32F;'></span>Sudeste</li>
-                    <li><span style='background:#DC8600;'></span>Sul</li>
-                    <li><span style='background:#E94335;'></span>Centro-Oeste</li>
-                </ul>
-            </div>
-        </div>
+        <footer>
+            2022
+        </footer>
     </main>
 
-    <footer>
-        2022
-    </footer>
 </body>
 </html>
