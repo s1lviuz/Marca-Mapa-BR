@@ -38,7 +38,7 @@ function regionColor (stateData) {
 
 function showStateData(stateData) {
     let li = document.createElement('li')
-    li.innerText = stateData.nome
+    li.innerText = `${stateData.nome} - ${stateData.uf}`
     document.querySelector('#statesList').append(li)
     let color = regionColor(stateData)
     mapApiParameters.push(`markers=color:${color}%7Csize:small%7C${stateData.latitude},${stateData.longitude}&`)
