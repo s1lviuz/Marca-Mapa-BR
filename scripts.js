@@ -1,7 +1,7 @@
 async function startApp() {
     try {
-        await getStatesData()
-        .then((statesData) => statesData.forEach(showStateData))
+        await getStatesDataFromJson()
+        .then((statesDataArray) => statesDataArray.forEach(insertStateDataOnHTML))
         mapApiParameters.push(apiKey)
         mapImg.src = mapApiParameters.join('')
         document.querySelector('section').prepend(mapImg)
@@ -10,38 +10,37 @@ async function startApp() {
     }
 }
 
-async function getStatesData() {
+async function getStatesDataFromJson() {
     try {
         const response = await fetch('estados.json')
         const responseJson = await response.json()
-        return responseJson.sort((a, b) => {
-            return compareStrings(a.nome, b.nome);
+        return responseJson.sort((stateA, stateB) => {
+            return getAlphabeticalOrderByStateNames(stateA.nome, stateB.nome);
         });
     } catch(error) {
         throw(error)
     }
 }
 
-function compareStrings(a, b) {
-    a = a.toLowerCase();
-    b = b.toLowerCase();
+function getAlphabeticalOrderByStateNames(firstStateName, secondStateName) {
+    let a = firstStateName.toLowerCase();
+    let b = secondStateName.toLowerCase();
     return (a < b) ? -1 : (a > b) ? 1 : 0;
 }
 
-function regionColor (stateData) {
-    const region = stateData.regiao
-    return  (region == 'Norte') ? 'green' : 
-            (region == 'Nordeste') ? 'blue' :
-            (region == 'Sudeste') ? 'yellow' :
-            (region == 'Sul') ? 'orange' : 'red'; 
+function mapMarkerColor (stateRegion) {
+    return  (stateRegion == 'Norte') ? 'green' : 
+            (stateRegion == 'Nordeste') ? 'blue' :
+            (stateRegion == 'Sudeste') ? 'yellow' :
+            (stateRegion == 'Sul') ? 'orange' : 'red'; 
 }
 
-function showStateData(stateData) {
+function insertStateDataOnHTML(stateData) {
     let li = document.createElement('li')
     li.innerText = `${stateData.nome} - ${stateData.uf}`
     document.querySelector('#statesList').append(li)
-    let color = regionColor(stateData)
-    mapApiParameters.push(`markers=color:${color}%7Csize:small%7C${stateData.latitude},${stateData.longitude}&`)
+    let markerColor = mapMarkerColor(stateData.regiao)
+    mapApiParameters.push(`markers=color:${markerColor}%7Csize:small%7C${stateData.latitude},${stateData.longitude}&`)
 }
 
 var mapImg = document.createElement('img')
