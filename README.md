@@ -1,4 +1,4 @@
 # Marca Mapa BR
- Um App WEB que marca em um mapa os estados do Brasil utilizando a API Google Maps Static
+Um Visualizador que mostra um mapa com marcadores indicando a posição de cada Estado do Brasil utilizando a API Google Maps Static, JavaScript, HTML e CSS.
 
-<p><a href='https://s1lviuz.github.io/Marca-Mapa-BR/' target="_blank">Ir para o App</a> 🚀</p>
+<p><a href='https://s1lviuz.github.io/Marca-Mapa-BR/' target="_blank">Ir para a página</a> 🚀</p>
