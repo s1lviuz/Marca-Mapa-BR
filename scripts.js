@@ -48,4 +48,4 @@ var mapImg = document.createElement('img')
 var mapApiParameters = ['https://maps.googleapis.com/maps/api/staticmap?center=Araguaiana,MT&zoom=4&size=500x500&']
 var apiKey = 'key=AIzaSyA4cTSxU1P2UygFzCl0NwCiD7mlZFTVnRg'
 
-startApp();
+document.addEventListener('DOMContentLoaded', startApp)
