@@ -2,7 +2,7 @@ async function startApp() {
     try {
         await getStatesData()
         .then((statesData) => statesData.forEach(showStateData))
-        mapApiParameters.push(mapKey)
+        mapApiParameters.push(apiKey)
         mapImg.src = mapApiParameters.join('')
         document.querySelector('section').prepend(mapImg)
     } catch(error) {
@@ -46,6 +46,6 @@ function showStateData(stateData) {
 
 var mapImg = document.createElement('img')
 var mapApiParameters = ['https://maps.googleapis.com/maps/api/staticmap?center=Araguaiana,MT&zoom=4&size=500x500&']
-var mapKey = 'key=AIzaSyA4cTSxU1P2UygFzCl0NwCiD7mlZFTVnRg'
+var apiKey = 'key=AIzaSyA4cTSxU1P2UygFzCl0NwCiD7mlZFTVnRg'
 
 startApp();
