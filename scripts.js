@@ -7,7 +7,7 @@ async function startApp() {
             let b = nextState.nome.toLowerCase()
             return (a < b) ? -1 : (a > b) ? 1 : 0;
         }))
-        .then(statesDataSorted => statesDataSorted.forEach(insertStateDataOnHTML))
+        .then(statesDataSorted => statesDataSorted.forEach(renderStateData))
     } catch(error) {
         throw(error)
     }
@@ -16,19 +16,19 @@ async function startApp() {
     document.querySelector('section').prepend(mapImg)
 }
 
-function mapMarkerColor(stateRegion) {
+function setMarkerColorByRegion(stateRegion) {
     return  (stateRegion == 'Norte') ? 'green' : 
             (stateRegion == 'Nordeste') ? 'blue' :
             (stateRegion == 'Sudeste') ? 'yellow' :
             (stateRegion == 'Sul') ? 'orange' : 'red'; 
 }
 
-function insertStateDataOnHTML(stateData) {
+function renderStateData(stateData) {
     let stateNameElement = document.createElement('li')
     stateNameElement.innerText = `${stateData.nome} - ${stateData.uf}`
     document.querySelector('#statesList').append(stateNameElement)
-    let markerColor = mapMarkerColor(stateData.regiao)
-    mapApiParameters.push(`markers=color:${markerColor}%7Csize:small%7C${stateData.latitude},${stateData.longitude}&`)
+    let mapMarkerColor = setMarkerColorByRegion(stateData.regiao)
+    mapApiParameters.push(`markers=color:${mapMarkerColor}%7Csize:small%7C${stateData.latitude},${stateData.longitude}&`)
 }
 
 var mapImg = document.createElement('img')
