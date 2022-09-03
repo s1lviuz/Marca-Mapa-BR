@@ -1,31 +1,22 @@
 async function startApp() {
     try {
-        await getStatesDataFromJson()
-        .then((statesDataArray) => statesDataArray.forEach(insertStateDataOnHTML))
-        mapApiParameters.push(apiKey)
-        mapImg.src = mapApiParameters.join('')
-        document.querySelector('section').prepend(mapImg)
-    } catch(error) {
-        throw(error)
-    }
-}
-
-async function getStatesDataFromJson() {
-    try {
-        const statesDataSorted = await fetch('estados.json')
-        .then((statesData) => statesData.json())
-        .then((statesDataJson) => statesDataJson.sort((state, nextState) => {
+        await fetch('estados.json')
+        .then(statesData => statesData.json())
+        .then(statesDataJson => statesDataJson.sort((state, nextState) => {
             let a = state.nome.toLowerCase()
             let b = nextState.nome.toLowerCase()
             return (a < b) ? -1 : (a > b) ? 1 : 0;
         }))
-        return statesDataSorted
+        .then(statesDataSorted => statesDataSorted.forEach(insertStateDataOnHTML))
     } catch(error) {
         throw(error)
     }
+    mapApiParameters.push(apiKey)
+    mapImg.src = mapApiParameters.join('')
+    document.querySelector('section').prepend(mapImg)
 }
 
-function mapMarkerColor (stateRegion) {
+function mapMarkerColor(stateRegion) {
     return  (stateRegion == 'Norte') ? 'green' : 
             (stateRegion == 'Nordeste') ? 'blue' :
             (stateRegion == 'Sudeste') ? 'yellow' :
