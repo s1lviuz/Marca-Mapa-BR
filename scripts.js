@@ -12,13 +12,14 @@ async function startApp() {
 
 async function getStatesDataFromJson() {
     try {
-        const response = await fetch('estados.json')
-        const responseJson = await response.json()
-        return responseJson.sort((state, nextState) => {
+        const statesDataSorted = await fetch('estados.json')
+        .then((statesData) => statesData.json())
+        .then((statesDataJson) => statesDataJson.sort((state, nextState) => {
             let a = state.nome.toLowerCase()
             let b = nextState.nome.toLowerCase()
             return (a < b) ? -1 : (a > b) ? 1 : 0;
-        });
+        }))
+        return statesDataSorted
     } catch(error) {
         throw(error)
     }
@@ -41,6 +42,6 @@ function insertStateDataOnHTML(stateData) {
 
 var mapImg = document.createElement('img')
 var mapApiParameters = ['https://maps.googleapis.com/maps/api/staticmap?center=Araguaiana,MT&zoom=4&size=500x500&']
-var apiKey = 'key=AIzaSyA4cTSxU1P2UygFzCl0NwCiD7mlZFTVnRg'
+var apiKey = 'key=AIzaSyBljqSOp1-UKoDe3d_GBdxrNPkJn43dXio'
 
 document.addEventListener('DOMContentLoaded', startApp)
